@@ -41,8 +41,10 @@ class Autoload extends AutoloadConfig
      * @var array<string, string>
      */
     public $psr4 = [
-        APP_NAMESPACE => APPPATH, // For custom app namespace
-        'Config'      => APPPATH . 'Config',
+        APP_NAMESPACE          => APPPATH, // For custom app namespace
+        'Config'               => APPPATH . 'Config',
+        'Modules\Template'   => ROOTPATH . 'modules/Template',
+        'Modules\UserModule'   => ROOTPATH . 'modules/UserModule',
     ];
 
     /**

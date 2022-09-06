@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/';
+    // public $baseURL = 'http://localhost:8080/';
 
     /**
      * --------------------------------------------------------------------------
@@ -37,7 +37,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $indexPage = 'index.php';
+    public $indexPage = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -462,4 +462,27 @@ class App extends BaseConfig
      * @var bool
      */
     public $CSPEnabled = false;
+
+    // Set base url dynamically
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setBaseUrl(); // Set the Base URL
+    }
+
+    protected function setBaseUrl()
+    {
+        switch (ENVIRONMENT) {
+            case 'production':
+                $this->baseURL = "";
+                break;
+            case 'staging':
+                $this->baseURL = "https://ci4.dhavalhost.com/";
+                break;
+            default:
+                $this->baseURL = "http://localhost/ci4/";
+                break;
+        }
+    }
 }

@@ -9,6 +9,9 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
+use Modules\UserModule\Filters\Auth;
+use Modules\UserModule\Filters\Noauth;
+
 class Filters extends BaseConfig
 {
     /**
@@ -23,6 +26,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        "auth"          => Auth::class,
+        "noauth"        => Noauth::class,
     ];
 
     /**

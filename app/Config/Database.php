@@ -9,6 +9,29 @@ use CodeIgniter\Database\Config;
  */
 class Database extends Config
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Ensure that we always set the database group to 'tests' if
+        // we are currently running an automated test suite, so that
+        // we don't overwrite live data on accident.
+
+        switch (ENVIRONMENT) {
+            case 'production':
+                $this->defaultGroup = 'production';
+                break;
+            case 'staging':
+                $this->defaultGroup = 'staging';
+                break;
+            case 'development':
+                $this->defaultGroup = 'development';
+                break;
+            default:
+                $this->defaultGroup = 'default';
+                break;
+        }
+    }
     /**
      * The directory that holds the Migrations
      * and Seeds directories.
@@ -23,7 +46,7 @@ class Database extends Config
      *
      * @var string
      */
-    public $defaultGroup = 'default';
+    public $defaultGroup = '';
 
     /**
      * The default database connection.
@@ -52,6 +75,85 @@ class Database extends Config
 
     /**
      * This database connection is used when
+     * running PHPUnit database staging.
+     *
+     * @var array
+     */
+    public $development = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'ci_user_module',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
+
+    /**
+     * This database connection is used when
+     * running PHPUnit database staging.
+     *
+     * @var array
+     */
+    public $staging = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => '',
+        'password' => '',
+        'database' => '',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => 'db_',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
+
+    /**
+     * This database connection is used when
+     * running PHPUnit database tests.
+     *
+     * @var array
+     */
+    public $production = [
+        'DSN'         => '',
+        'hostname'    => '127.0.0.1',
+        'username'    => '',
+        'password'    => '',
+        'database'    => ':memory:',
+        'DBDriver'    => 'SQLite3',
+        'DBPrefix'    => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+        'pConnect'    => false,
+        'DBDebug'     => (ENVIRONMENT !== 'production'),
+        'charset'     => 'utf8',
+        'DBCollat'    => 'utf8_general_ci',
+        'swapPre'     => '',
+        'encrypt'     => false,
+        'compress'    => false,
+        'strictOn'    => false,
+        'failover'    => [],
+        'port'        => 3306,
+        'foreignKeys' => true,
+    ];
+
+    /**
+     * This database connection is used when
      * running PHPUnit database tests.
      *
      * @var array
@@ -76,16 +178,4 @@ class Database extends Config
         'port'        => 3306,
         'foreignKeys' => true,
     ];
-
-    public function __construct()
-    {
-        parent::__construct();
-
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
-    }
 }
