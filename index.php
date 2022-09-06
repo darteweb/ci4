@@ -61,9 +61,9 @@ require_once SYSTEMPATH . 'Config/DotEnv.php';
  */
 
 $host = $_SERVER['HTTP_HOST'];
-if ($host == "ofiapi.com") {
+if ($host == "ci4.com") {
     define("ENVIRONMENT", "production");
-} else if ($host == "ofiapi.dhavalhost.com") {
+} else if ($host == "ci4.dhavalhost.com") {
     define("ENVIRONMENT", "staging");
 } else {
     define("ENVIRONMENT", "development");
