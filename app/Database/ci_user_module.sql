@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2022 at 06:47 AM
+-- Generation Time: Sep 06, 2022 at 08:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -53,7 +53,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `mobile`, `user_name`, `password`, `role_id`, `parent_id`, `country`, `region`, `otp`, `last_login`, `status`, `created_by`, `created_on`, `edited_by`, `edited_on`, `flag`) VALUES
-(1, 'Hemendra', 'hemendra@darteweb.in', '8003836264', 'hemendra@darteweb.in', '$2y$10$1fHLe147eHUWFJokZqMEeeoWiOQ2PpNwIVA4Q/.FlyZdHbsPTyzea', 1, 1, 'cambodia', 'India', NULL, '2022-09-05 11:09:45', 0, 1, '2022-08-16 12:16:07', 0, '2022-09-06 04:45:45', 0),
+(1, 'Hemendra', 'hemendra@darteweb.in', '8003836264', 'hemendra@darteweb.in', '$2y$10$1fHLe147eHUWFJokZqMEeeoWiOQ2PpNwIVA4Q/.FlyZdHbsPTyzea', 1, 1, 'cambodia', 'India', NULL, '2022-09-06 12:09:31', 0, 1, '2022-08-16 12:16:07', 0, '2022-09-06 05:58:31', 0),
 (2, 'Rahul', 'rahul@darteweb.in', '9876543210', 'rahul@darteweb.in', '$2y$10$1fHLe147eHUWFJokZqMEeeoWiOQ2PpNwIVA4Q/.FlyZdHbsPTyzea', 2, 1, 'cambodia', 'XYZ', NULL, '2022-08-18 12:08:22', 0, 1, '2022-08-16 12:16:07', 0, '2022-09-05 05:41:17', 0),
 (3, 'Dipak', 'dipak@darteweb.in', '9876543211', 'dipak@darteweb.in', '$2y$10$1fHLe147eHUWFJokZqMEeeoWiOQ2PpNwIVA4Q/.FlyZdHbsPTyzea', 2, 1, 'cambodia', 'XYZ', NULL, '2022-08-19 11:08:14', 0, 1, '2022-08-16 12:16:07', 0, '2022-09-06 04:33:19', 0),
 (4, 'Harshit', 'harshit@darteweb.in', '9876543212', 'harshit@darteweb.in', '$2y$10$1fHLe147eHUWFJokZqMEeeoWiOQ2PpNwIVA4Q/.FlyZdHbsPTyzea', 2, 1, 'cambodia', 'XYZ', NULL, NULL, 0, 1, '2022-08-16 12:16:07', 0, '2022-09-06 04:33:22', 0),
