@@ -4,8 +4,8 @@
 
 <div class="container" style="margin-top:20px;">
     <div class="row">
-        <div class="col-sm-11">
-            <div>
+        <div class="col-sm-6">
+            <div class="">
                 <div style="height:50px; color:#fff;">
                     <div class="pull-left">
                         <h4>Admin Dashboard</h4>

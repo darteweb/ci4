@@ -20,7 +20,7 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container">
     <div class="card">
         <div class="card-header">
             <h4>User List</h4>

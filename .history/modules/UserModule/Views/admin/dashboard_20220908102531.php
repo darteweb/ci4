@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top:20px;">
     <div class="row">
-        <div class="col-sm-11">
+        <div class="col-sm-6">
             <div>
                 <div style="height:50px; color:#fff;">
                     <div class="pull-left">
