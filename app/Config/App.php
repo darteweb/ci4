@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/';
+    public $baseURL = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -463,4 +463,27 @@ class App extends BaseConfig
      * @var bool
      */
     public $CSPEnabled = false;
+    
+    // Set base url dynamically
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setBaseUrl(); // Set the Base URL
+    }
+
+    protected function setBaseUrl()
+    {
+        switch (ENVIRONMENT) {
+            case 'production':
+                $this->baseURL = "production.url.here";
+                break;
+            case 'staging':
+                $this->baseURL = "staging.url.here";
+                break;
+            default:
+                $this->baseURL = "http://localhost/ci-four/";
+                break;
+        }
+    }
 }
